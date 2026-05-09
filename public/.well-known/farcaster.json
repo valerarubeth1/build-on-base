@@ -1,15 +1,20 @@
 {
+  "accountAssociation": {
+    "header": "eyJmaWQiOjE5NDAxNCwidHlwZSI6ImN1c3RvZHkiLCJrZXkiOiIweEE3OGI3MDZjOEI1REZmODdhOTQyNWM1MTc5QTNDNDE2QTI0ODQ5MjgifQ",
+    "payload": "eyJkb21haW4iOiJidWlsZC1vbi1iYXNlLWtoYWtpLnZlcmNlbC5hcHAifQ",
+    "signature": "5PpdfGMY2UsKLJAabwIxxQqzXGbin1nDNVS53rzZ2iZas1NnGkZ5LXY2BPpbTuxBElh7NpcxBInB7O+TA1onFhs="
+  },
   "frame": {
-    "name": "build on base",
     "version": "1",
+    "name": "Mint NFT on Base",
     "iconUrl": "https://build-on-base-khaki.vercel.app/icon.png",
     "homeUrl": "https://build-on-base-khaki.vercel.app",
     "imageUrl": "https://build-on-base-khaki.vercel.app/image.png",
+    "buttonTitle": "Mint NFT",
     "splashImageUrl": "https://build-on-base-khaki.vercel.app/splash.png",
-    "splashBackgroundColor": "#0052FF",
+    "splashBackgroundColor": "#0022FF",
     "webhookUrl": "https://build-on-base-khaki.vercel.app/api/webhook",
-    "subtitle": "Mint NFT on Base",
-    "primaryCategory": "developer-tools",
-    "description": "gm bro"
+    "subtitle": "Mint your NFT on Base",
+    "description": "gm bro — mint NFT directly in Warpcast"
   }
 }
