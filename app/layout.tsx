@@ -8,11 +8,11 @@ export const metadata: Metadata = {
   other: {
     'base:app_id': '69ff8e719ee68cd142d1af9a',
     'fc:frame': 'vNext',
-    'fc:frame:image': 'https://build-on-base-khaki.vercel.app/frame-image.png',
+    'fc:frame:image': 'https://gateway.pinata.cloud/ipfs/bafybeig3ldqhs6lo2zb7sl624sctbvcozw6htm3ckcz3qpgtxqhylmjyei',
     'fc:frame:button:1': 'Mint NFT 🔵',
     'fc:frame:button:1:action': 'link',
     'fc:frame:button:1:target': 'https://build-on-base-khaki.vercel.app',
-    'og:image': 'https://build-on-base-khaki.vercel.app/frame-image.png',
+    'og:image': 'https://gateway.pinata.cloud/ipfs/bafybeig3ldqhs6lo2zb7sl624sctbvcozw6htm3ckcz3qpgtxqhylmjyei',
   },
 }
 
