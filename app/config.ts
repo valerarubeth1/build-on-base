@@ -9,7 +9,7 @@ export const BUILDER_CODE = 'REPLACE_WITH_YOUR_BUILDER_CODE'
 
 // NFT Contract on Base mainnet
 // ⚠️  REPLACE with your deployed contract address
-export const NFT_CONTRACT_ADDRESS = '0x0000000000000000000000000000000000000000' as `0x${string}`
+export const NFT_CONTRACT_ADDRESS = '0xa2035868d01e3a14c7da7472b753f5e9999f9e75' as `0x${string}`
 
 export const MINT_PRICE = '0.00001' // ETH
 
