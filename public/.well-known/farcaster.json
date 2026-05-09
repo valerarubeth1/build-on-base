@@ -1,0 +1,15 @@
+{
+  "frame": {
+    "name": "build on base",
+    "version": "1",
+    "iconUrl": "https://build-on-base-khaki.vercel.app/icon.png",
+    "homeUrl": "https://build-on-base-khaki.vercel.app",
+    "imageUrl": "https://build-on-base-khaki.vercel.app/image.png",
+    "splashImageUrl": "https://build-on-base-khaki.vercel.app/splash.png",
+    "splashBackgroundColor": "#0052FF",
+    "webhookUrl": "https://build-on-base-khaki.vercel.app/api/webhook",
+    "subtitle": "Mint NFT on Base",
+    "primaryCategory": "developer-tools",
+    "description": "gm bro"
+  }
+}
