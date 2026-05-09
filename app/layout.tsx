@@ -6,8 +6,13 @@ export const metadata: Metadata = {
   title: 'Build on Base — Mint NFT',
   description: 'Support builders on Base. Mint a unique NFT by valerarub.base.eth',
   other: {
-    // ✅ Твой base:app_id — уже вставлен!
     'base:app_id': '69ff8e719ee68cd142d1af9a',
+    'fc:frame': 'vNext',
+    'fc:frame:image': 'https://build-on-base-khaki.vercel.app/frame-image.png',
+    'fc:frame:button:1': 'Mint NFT 🔵',
+    'fc:frame:button:1:action': 'link',
+    'fc:frame:button:1:target': 'https://build-on-base-khaki.vercel.app',
+    'og:image': 'https://build-on-base-khaki.vercel.app/frame-image.png',
   },
 }
 
