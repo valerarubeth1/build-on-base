@@ -5,7 +5,7 @@ import { coinbaseWallet, metaMask, injected } from 'wagmi/connectors'
 // ⚠️  REPLACE with your Builder Code from base.dev → Settings → Builder Codes
 // After you add your domain and get the code (looks like: bc_xxxxxxxx)
 // For now transactions work without it, add it later for attribution
-export const BUILDER_CODE = 'REPLACE_WITH_YOUR_BUILDER_CODE'
+export const BUILDER_CODE = 'bc_r9cwb41b'
 
 // NFT Contract on Base mainnet
 // ⚠️  REPLACE with your deployed contract address
