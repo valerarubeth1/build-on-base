@@ -36,7 +36,6 @@ export default function Home() {
     hash,
   })
 
-  // Убираем splash screen в Farcaster
   useEffect(() => {
     import('@farcaster/miniapp-sdk').then((mod) => {
       try {
@@ -69,7 +68,6 @@ export default function Home() {
 
   return (
     <main style={{ position: 'relative', zIndex: 1, minHeight: '100vh', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: '24px' }}>
-      {/* Header */}
       <div style={{ position: 'fixed', top: 0, left: 0, right: 0, display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '16px 24px', borderBottom: '1px solid rgba(0,82,255,0.15)', backdropFilter: 'blur(10px)', zIndex: 10 }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
           <div style={{ width: '28px', height: '28px', background: '#0052FF', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '12px', fontWeight: 'bold' }}>B</div>
@@ -85,34 +83,21 @@ export default function Home() {
         ) : null}
       </div>
 
-      {/* NFT Card */}
       <div className="animate-fadeInUp" style={{ maxWidth: '420px', width: '100%', textAlign: 'center' }}>
-        {/* NFT Visual */}
+
         <div className="animate-float" style={{ marginBottom: '32px' }}>
-          <div style={{
-            width: '280px',
-            height: '280px',
-            margin: '0 auto',
-            background: 'linear-gradient(135deg, #001a66 0%, #0052FF 50%, #3380ff 100%)',
-            border: '1px solid rgba(0,82,255,0.5)',
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-            justifyContent: 'center',
-            position: 'relative',
-            overflow: 'hidden',
-          }}>
-            <div style={{
-              position: 'absolute',
-              inset: 0,
-              backgroundImage: 'linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px)',
-              backgroundSize: '20px 20px',
-            }} />
-            <div style={{ fontSize: '72px', fontWeight: 'bold', color: 'white', position: 'relative', zIndex: 1, textShadow: '0 0 40px rgba(255,255,255,0.5)' }}>⬡</div>
-            <div style={{ fontSize: '11px', letterSpacing: '0.2em', color: 'rgba(255,255,255,0.8)', position: 'relative', zIndex: 1, marginTop: '8px' }}>BUILD ON BASE</div>
-            <div style={{ fontSize: '10px', color: 'rgba(255,255,255,0.4)', position: 'relative', zIndex: 1, marginTop: '4px' }}>valerarub.base.eth</div>
-            <div style={{ position: 'absolute', top: '12px', right: '12px', background: 'rgba(0,82,255,0.8)', fontSize: '9px', padding: '3px 7px', letterSpacing: '0.1em' }}>BASE</div>
-          </div>
+          <img
+            src="https://gateway.pinata.cloud/ipfs/bafybeig3ldqhs6lo2zb7sl624sctbvcozw6htm3ckcz3qpgtxqhylmjyei"
+            alt="Build on Base NFT"
+            style={{
+              width: '280px',
+              height: '280px',
+              margin: '0 auto',
+              display: 'block',
+              border: '2px solid rgba(0,82,255,0.5)',
+              boxShadow: '0 0 40px rgba(0,82,255,0.4)',
+            }}
+          />
         </div>
 
         <h1 style={{ fontSize: '28px', fontWeight: 'bold', letterSpacing: '0.05em', marginBottom: '8px' }}>
