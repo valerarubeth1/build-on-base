@@ -39,12 +39,10 @@ export default function Home() {
   // Убираем splash screen в Farcaster
   useEffect(() => {
     import('@farcaster/frame-sdk').then((mod) => {
-      const sdk = mod.default || mod.sdk || mod
-      if (sdk?.actions?.ready) {
-        sdk.actions.ready()
-      } else if (sdk?.ready) {
-        sdk.ready()
-      }
+      try {
+        const sdk = (mod as any).default || (mod as any).sdk || mod
+        sdk?.actions?.ready?.()
+      } catch {}
     }).catch(() => {})
   }, [])
 
