@@ -40,7 +40,7 @@ export default function Home() {
   useEffect(() => {
     import('@farcaster/frame-sdk').then((mod) => {
       try {
-        const sdk = (mod as any).default || (mod as any).sdk || mod
+        const sdk = (mod as any).default ?? mod
         sdk?.actions?.ready?.()
       } catch {}
     }).catch(() => {})
