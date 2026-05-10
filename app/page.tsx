@@ -1,5 +1,4 @@
 'use client'
-
 import { useState, useEffect } from 'react'
 import {
   useAccount,
@@ -42,8 +41,14 @@ export default function Home() {
     hash,
   })
 
+  // Farcaster Mini App — убираем splash screen
   useEffect(() => {
-    
+    import('@farcaster/miniapp-sdk')
+      .then(({ actions }) => {
+        actions.ready().catch(() => {})
+      })
+      .catch(() => {}) // если пакета нет — просто игнорируем
+
     if (isSuccess) {
       setMintSuccess(true)
     }
@@ -67,7 +72,6 @@ export default function Home() {
 
   return (
     <main style={{ position: 'relative', zIndex: 1, minHeight: '100vh', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: '24px' }}>
-
       {/* Header */}
       <div style={{ position: 'fixed', top: 0, left: 0, right: 0, display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '16px 24px', borderBottom: '1px solid rgba(0,82,255,0.15)', backdropFilter: 'blur(10px)', zIndex: 10 }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
@@ -86,7 +90,6 @@ export default function Home() {
 
       {/* NFT Card */}
       <div className="animate-fadeInUp" style={{ maxWidth: '420px', width: '100%', textAlign: 'center' }}>
-
         {/* NFT Visual */}
         <div className="animate-float" style={{ marginBottom: '32px' }}>
           <div style={{
@@ -102,24 +105,19 @@ export default function Home() {
             position: 'relative',
             overflow: 'hidden',
           }}>
-            {/* Grid pattern inside card */}
             <div style={{
               position: 'absolute',
               inset: 0,
               backgroundImage: 'linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px)',
               backgroundSize: '20px 20px',
             }} />
-            {/* B logo */}
             <div style={{ fontSize: '72px', fontWeight: 'bold', color: 'white', position: 'relative', zIndex: 1, textShadow: '0 0 40px rgba(255,255,255,0.5)' }}>⬡</div>
             <div style={{ fontSize: '11px', letterSpacing: '0.2em', color: 'rgba(255,255,255,0.8)', position: 'relative', zIndex: 1, marginTop: '8px' }}>BUILD ON BASE</div>
             <div style={{ fontSize: '10px', color: 'rgba(255,255,255,0.4)', position: 'relative', zIndex: 1, marginTop: '4px' }}>valerarub.base.eth</div>
-
-            {/* Corner badge */}
             <div style={{ position: 'absolute', top: '12px', right: '12px', background: 'rgba(0,82,255,0.8)', fontSize: '9px', padding: '3px 7px', letterSpacing: '0.1em' }}>BASE</div>
           </div>
         </div>
 
-        {/* Title */}
         <h1 style={{ fontSize: '28px', fontWeight: 'bold', letterSpacing: '0.05em', marginBottom: '8px' }}>
           BUILD ON BASE
         </h1>
@@ -127,12 +125,10 @@ export default function Home() {
           Support builders on Base. Own a piece of the chain.
         </p>
 
-        {/* Supply */}
         <div style={{ fontSize: '11px', color: 'rgba(0,82,255,0.9)', marginBottom: '32px', letterSpacing: '0.1em' }}>
           {supply} / {max} MINTED
         </div>
 
-        {/* Stats row */}
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '1px', background: 'rgba(0,82,255,0.15)', border: '1px solid rgba(0,82,255,0.15)', marginBottom: '24px' }}>
           {[
             { label: 'PRICE', value: `${MINT_PRICE} ETH` },
@@ -146,7 +142,6 @@ export default function Home() {
           ))}
         </div>
 
-        {/* Action area */}
         {mintSuccess ? (
           <div style={{ padding: '24px', border: '1px solid rgba(0,255,100,0.3)', background: 'rgba(0,255,100,0.05)', textAlign: 'center' }}>
             <div style={{ fontSize: '24px', marginBottom: '8px' }}>✓</div>
@@ -187,7 +182,6 @@ export default function Home() {
           </button>
         )}
 
-        {/* Footer */}
         <div style={{ marginTop: '32px', fontSize: '10px', color: 'rgba(255,255,255,0.25)', letterSpacing: '0.1em' }}>
           BY VALERARUB.BASE.ETH ON BASE MAINNET
         </div>
