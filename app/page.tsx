@@ -43,10 +43,7 @@ export default function Home() {
   })
 
   useEffect(() => {
-    // ← Это обязательно для Farcaster Mini App
-    import('@farcaster/frame-sdk').then(({ actions }) => {
-      actions.ready().catch(console.error);
-    });
+    
     if (isSuccess) {
       setMintSuccess(true)
     }
