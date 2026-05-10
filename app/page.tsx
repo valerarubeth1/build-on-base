@@ -16,39 +16,39 @@ export default function Home() {
   const { address, isConnected } = useAccount()
   const { connect, connectors } = useConnect()
   const { disconnect } = useDisconnect()
-  const [txHash, setTxHash] = useState<`0x${string}` | undefined>()
   const [mintSuccess, setMintSuccess] = useState(false)
 
-  // Read total supply
   const { data: totalSupply } = useReadContract({
     address: NFT_CONTRACT_ADDRESS,
     abi: NFT_ABI,
     functionName: 'totalSupply',
   })
 
-  // Read max supply
   const { data: maxSupply } = useReadContract({
     address: NFT_CONTRACT_ADDRESS,
     abi: NFT_ABI,
     functionName: 'maxSupply',
   })
 
-  // Write mint transaction
   const { writeContract, isPending, data: hash } = useWriteContract()
 
-  // Wait for transaction
   const { isLoading: isConfirming, isSuccess } = useWaitForTransactionReceipt({
     hash,
   })
 
-  // Farcaster Mini App — убираем splash screen
+  // Убираем splash screen в Farcaster
   useEffect(() => {
-    import('@farcaster/miniapp-sdk')
-      .then(({ actions }) => {
-        actions.ready().catch(() => {})
-      })
-      .catch(() => {}) // если пакета нет — просто игнорируем
+    import('@farcaster/frame-sdk').then((mod) => {
+      const sdk = mod.default || mod.sdk || mod
+      if (sdk?.actions?.ready) {
+        sdk.actions.ready()
+      } else if (sdk?.ready) {
+        sdk.ready()
+      }
+    }).catch(() => {})
+  }, [])
 
+  useEffect(() => {
     if (isSuccess) {
       setMintSuccess(true)
     }
@@ -91,20 +91,31 @@ export default function Home() {
       {/* NFT Card */}
       <div className="animate-fadeInUp" style={{ maxWidth: '420px', width: '100%', textAlign: 'center' }}>
         {/* NFT Visual */}
-        <div style={{ marginBottom: '32px' }}>
-          <img 
-            src="/frame-image.png" 
-            alt="Build on Base NFT"
-            style={{
-              width: '280px',
-              height: '280px',
-              margin: '0 auto',
-              borderRadius: '16px',
-              border: '3px solid rgba(0,82,255,0.6)',
-              boxShadow: '0 0 40px rgba(0,82,255,0.4)',
-              objectFit: 'cover'
-            }}
-          />
+        <div className="animate-float" style={{ marginBottom: '32px' }}>
+          <div style={{
+            width: '280px',
+            height: '280px',
+            margin: '0 auto',
+            background: 'linear-gradient(135deg, #001a66 0%, #0052FF 50%, #3380ff 100%)',
+            border: '1px solid rgba(0,82,255,0.5)',
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            justifyContent: 'center',
+            position: 'relative',
+            overflow: 'hidden',
+          }}>
+            <div style={{
+              position: 'absolute',
+              inset: 0,
+              backgroundImage: 'linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px)',
+              backgroundSize: '20px 20px',
+            }} />
+            <div style={{ fontSize: '72px', fontWeight: 'bold', color: 'white', position: 'relative', zIndex: 1, textShadow: '0 0 40px rgba(255,255,255,0.5)' }}>⬡</div>
+            <div style={{ fontSize: '11px', letterSpacing: '0.2em', color: 'rgba(255,255,255,0.8)', position: 'relative', zIndex: 1, marginTop: '8px' }}>BUILD ON BASE</div>
+            <div style={{ fontSize: '10px', color: 'rgba(255,255,255,0.4)', position: 'relative', zIndex: 1, marginTop: '4px' }}>valerarub.base.eth</div>
+            <div style={{ position: 'absolute', top: '12px', right: '12px', background: 'rgba(0,82,255,0.8)', fontSize: '9px', padding: '3px 7px', letterSpacing: '0.1em' }}>BASE</div>
+          </div>
         </div>
 
         <h1 style={{ fontSize: '28px', fontWeight: 'bold', letterSpacing: '0.05em', marginBottom: '8px' }}>
